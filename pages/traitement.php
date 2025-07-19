@@ -65,7 +65,7 @@
         } else {
             $_SESSION['mes'] = "Failed to delete image.";
         }
-        header("Location: home.php");
+        header("Location: fiche.php?id_objet=" . $_SESSION['id_objet']);
         exit();
     }
 ?>

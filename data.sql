@@ -94,3 +94,25 @@ INSERT INTO emprunt (id_objet, id_membre, date_emprunt, date_retour) VALUES
 (32, 2, '2025-07-08', '2025-07-18'),
 (35, 1, '2025-07-09', '2025-07-19'),
 (40, 3, '2025-07-10', '2025-07-20');
+
+
+create or replace view v_all_info_membre as
+select m.id_membre, m.nom, m.date_naissance, m.genre, m.email, m.ville, m.image_profil,
+e.date_emprunt, e.date_retour,o.nom_objet, c.nom_categorie,o.id_objet, i.nom_image
+from membre m join emprunt e on m.id_membre = e.id_membre
+join objet o on e.id_objet = o.id_objet
+join images_objet i on o.id_objet = i.id_objet
+join categorie_objet c on o.id_categorie = c.id_categorie; 
+
+create or replace view v_all_info_categorie as
+select c.id_categorie, c.nom_categorie, o.id_objet, o.nom_objet, m.id_membre
+from categorie_objet c join objet o on c.id_categorie = o.id_categorie
+join membre m on o.id_membre = m.id_membre
+join images_objet i on o.id_objet = i.id_objet;
+
+create or replace view v_all_info_objet as
+select o.id_objet,o.nom_objet, c.nom_categorie,m.nom, m.id_membre, i.nom_image, e.date_emprunt, e.date_retour 
+from objet o join  emprunt e on o.id_objet = e.id_objet
+join membre m on e.id_membre = m.id_membre
+join images_objet i on o.id_objet = i.id_objet 
+join v_all_info_categorie c on o.id_categorie = c.id_categorie; 

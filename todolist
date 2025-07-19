@@ -6,4 +6,16 @@
 [] creer la page inscription
     -[ok] creer des fonctions login et inscription
     -[ok] appel de ces fonctions dans traitement
-    -[] rediriger vers home.php
+    -[ok]Formulaire pour sinscrire dans la page inscription
+    -[ok] rediriger vers home.php
+
+[] creer la page home
+    -[ok] inserer un header et un footer
+    -[] Afficher son nom
+        -> [ok] creation de vue v_all_info
+        -> [ok] functtion get_user_info() 
+    -[] Afficher la liste des emprunts (Nom , categorie , disponiblite)
+        -> [] creation de vue v_info_object
+        -> [] fonction get_list_objecct() 
+
+

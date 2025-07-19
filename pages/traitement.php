@@ -56,4 +56,16 @@
         header("Location:result.php");
         exit();
     }
+
+    if (isset($_POST['id_image']) && isset($_POST['nom_image'])) {
+        $id_image = $_POST['id_image'];
+        $nom_image = $_POST['nom_image'];
+        if (delete_image($id_image, $nom_image)) {
+            $_SESSION['mes'] = "Image deleted successfully.";
+        } else {
+            $_SESSION['mes'] = "Failed to delete image.";
+        }
+        header("Location: home.php");
+        exit();
+    }
 ?>

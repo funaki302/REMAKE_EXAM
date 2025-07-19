@@ -45,3 +45,7 @@ Vesrion 2 :
     ->[ok] formulaire de recherche sur navbar
     ->[ok] fonction recherche()
     ->[ok] afficher les resultats de recherche dans un tableau
+
+[] supprimer des photos
+    ->[] formulaire pour supprimer les photos
+    ->[] function delete_image()

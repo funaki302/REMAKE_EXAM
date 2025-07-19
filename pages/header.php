@@ -26,10 +26,10 @@ session_start();
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="upload.php">Nouvel Object</a>
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="../inc/deconnexion.php">Deconnexion</a>
                     </li>
                 </ul>
@@ -39,13 +39,15 @@ session_start();
                     </li>
                 </ul>
                 <form class="d-flex" role="search" action="traitement.php" method="post">
-                    <input class="form-control " type="search" name="categorie" placeholder="selon categorie" aria-label="Search">
+                    <input class="form-control " type="search" name="categorie" placeholder="selon categorie"
+                        aria-label="Search">
                     <input type="checkbox" name="dispo">
-                    <input class="form-control " type="search" name="nom_objet" placeholder="selon nom objet" aria-label="Search">
+                    <input class="form-control " type="search" name="nom_objet" placeholder="selon nom objet"
+                        aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 <input type="checkbox" name="" id="">
-                
+
             </div>
         </div>
     </nav>

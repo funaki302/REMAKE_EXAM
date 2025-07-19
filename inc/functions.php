@@ -122,7 +122,7 @@ function set_new_objects($nom_object, $id_categorie, $nom_image, $id_membre)
 function avoir_objet($id_objet)
 {
     $sql = "SELECT * FROM v_all_info_categorie WHERE id_objet = '$id_objet'";
-    $result = mysqli_query(dbconnect(),$sql);
+    $result = mysqli_query(dbconnect(), $sql);
     if (mysqli_num_rows($result) > 0) {
         return mysqli_fetch_assoc($result);
     } else {
@@ -133,7 +133,7 @@ function avoir_objet($id_objet)
 function historique_emprunt($id_objet)
 {
     $sql = "SELECT nom_objet,nom_categorie,date_emprunt,date_retour,nom,id_membre FROM v_all_info_objet_emprunter WHERE id_objet = '$id_objet'";
-    $result = mysqli_query(dbconnect(),$sql);
+    $result = mysqli_query(dbconnect(), $sql);
     $list = [];
 
     while ($result && $row = mysqli_fetch_assoc($result)) {
@@ -146,7 +146,7 @@ function historique_emprunt($id_objet)
 function get_images_objet($id_objet)
 {
     $sql = "SELECT * FROM images_objet WHERE id_objet = '$id_objet'";
-    $result = mysqli_query(dbconnect(),$sql);
+    $result = mysqli_query(dbconnect(), $sql);
     $list = [];
 
     while ($row = mysqli_fetch_assoc($result)) {
@@ -156,7 +156,7 @@ function get_images_objet($id_objet)
 
 }
 
-function recherche($categorie,$nom_objet,$dispo)
+function recherche($categorie, $nom_objet, $dispo)
 {
     $conditions = [];
     if (!empty($nom_objet)) {
@@ -165,9 +165,9 @@ function recherche($categorie,$nom_objet,$dispo)
     if (!empty($categorie)) {
         $conditions[] = "(nom_categorie LIKE  '%$categorie%')";
     }
-    
+
     $sql = "SELECT * FROM v_all_info_categorie";
-    
+
     if (!empty($conditions)) {
         $sql .= " WHERE " . implode(" AND ", $conditions);
     }
@@ -177,7 +177,7 @@ function recherche($categorie,$nom_objet,$dispo)
     while ($result && $donnes = mysqli_fetch_assoc($result)) {
         $retour[] = $donnes;
     }
-    
+
     /*$fin = [];
     if($dispo === "1") {
         foreach($retour as $obj){
@@ -213,7 +213,7 @@ function get_id_membre($nom, $email, $mdp)
 function get_list_object_membre($id_membre)
 {
     $sql = "SELECT * FROM v_all_info_categorie WHERE id_membre = '$id_membre' order by nom_categorie";
-    $result = mysqli_query(dbconnect(),$sql);
+    $result = mysqli_query(dbconnect(), $sql);
     $list = [];
 
     while ($row = mysqli_fetch_assoc($result)) {
@@ -227,7 +227,18 @@ function delete_image($id_image, $nom_image)
     $sql = "DELETE FROM images_objet WHERE id_image = '$id_image' AND nom_image = '$nom_image'";
     $result = mysqli_query(dbconnect(), $sql);
     if ($result) {
-       unlink(__DIR__ . "/uploads/" . $nom_image); 
+        unlink(__DIR__ . "/uploads/" . $nom_image);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function add_image($id_objet, $nom_image)
+{
+    $sql = "INSERT INTO images_objet (id_objet, nom_image) VALUES ('$id_objet', '$nom_image')";
+    $result = mysqli_query(dbconnect(), $sql);
+    if ($result) {
         return true;
     } else {
         return false;

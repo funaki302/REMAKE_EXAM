@@ -4,16 +4,17 @@ session_start();
 $id_membre = $_SESSION['user']['id_membre'];
 $id_categorie = $_POST['categorie'];
 $nom_objet = $_POST['nom_objet'];
+$id_object = $_POST['id_objet_1'];
 $tipe = 0;
 $uploadDir = __DIR__ . '/uploads/';
 $maxSize = 200 * 1024 * 1024; // 2 Mo 
-$allowedMimeTypes = [ 'image/jpeg', 'image/png', 'image/svg+xml', 'image/webp'];
+$allowedMimeTypes = ['image/jpeg', 'image/png', 'image/svg+xml', 'image/webp'];
 $cas = 0;
 
 // Création du dossier s'il n'existe pas
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0755, true);
-} 
+}
 
 // Vérifie si un fichier est soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['media'])) {
@@ -34,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['media'])) {
     }
 
     // Définir $tipe selon le type de fichier
-    if ($mime === 'video/mp4' || $mime === 'video/webm' ) {
+    if ($mime === 'video/mp4' || $mime === 'video/webm') {
         $tipe = 2; // Vidéo
     } else {
         $tipe = 1; // Photo
@@ -47,10 +48,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['media'])) {
 
     // Déplace le fichier 
     if (move_uploaded_file($file['tmp_name'], $uploadDir . $newName)) {
-        set_new_objects($nom_objet,$id_categorie, $newName, $id_membre);
-        header('location:../pages/home.php');
-    } else {
+        if (isset($id_object)) {
+            add_image($id_object, $newName);
+            header('location:../pages/fiche.php?id_objet=' . $id_object);
+        } else if (!isset($id_object)) 
+        {
+            set_new_objects($nom_objet, $id_categorie, $newName, $id_membre);
+            header('location:../pages/home.php');
+        } else 
+        {
         echo "Échec du déplacement du fichier.";
+        }
     }
 } else {
     echo "Aucun fichier reçu.";

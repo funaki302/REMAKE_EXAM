@@ -36,7 +36,7 @@ if(isset($_GET['id_categorie']) && $_GET['id_categorie'] != '') {
                 <?php foreach ($list_object as $object) : 
                    $dispo = disponibilite($object['id_objet']); ?>
                 <tr class="table-active">
-                    <td><?= $object['nom_objet'] ?></td>
+                    <td><a href="fiche.php?id_objet=<?= $object['id_objet'] ?>"><?= $object['nom_objet'] ?></a></td>
                     <td><?= $object['nom_categorie'] ?></td>
                     <td><?= $dispo ?></td>
                 </tr>

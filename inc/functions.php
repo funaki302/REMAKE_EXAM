@@ -222,18 +222,6 @@ function get_list_object_membre($id_membre)
     return $list;
 }
 
-function get_list_object_membre($id_membre)
-{
-    $sql = "SELECT * FROM v_all_info_categorie WHERE id_membre = '$id_membre' order by nom_categorie";
-    $result = mysqli_query(dbconnect(),$sql);
-    $list = [];
-
-    while ($row = mysqli_fetch_assoc($result)) {
-        $list[] = $row;
-    }
-    return $list;
-}
-
 function delete_image($id_image, $nom_image)
 {
     $sql = "DELETE FROM images_objet WHERE id_image = '$id_image' AND nom_image = '$nom_image'";

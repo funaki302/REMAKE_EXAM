@@ -775,3 +775,8 @@ footer p {
     transform: translateX(5px);
     box-shadow: var(--glow-blue);
 }
+
+.fiche{
+    width: 80%;
+    text-align: left;
+}

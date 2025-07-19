@@ -48,7 +48,7 @@ function disponibilite($id_objet)
 {
     $sql = "SELECT date_retour FROM v_all_info_objet_emprunter WHERE id_objet = '$id_objet' AND date_retour > now()";
     $result = mysqli_query(dbconnect(), $sql);
-    if (mysqli_num_rows($result) > 0) {
+    if ($result && mysqli_num_rows($result) > 0) {
         $rest = mysqli_fetch_assoc($result);
         return "Disponible a partir du " . $rest['date_retour'];
     } else {
@@ -136,7 +136,7 @@ function historique_emprunt($id_objet)
     $result = mysqli_query(dbconnect(),$sql);
     $list = [];
 
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($result && $row = mysqli_fetch_assoc($result)) {
         $list[] = $row;
     }
     return $list;
@@ -208,6 +208,18 @@ function get_id_membre($nom, $email, $mdp)
     } else {
         return false;
     }
+}
+
+function get_list_object_membre($id_membre)
+{
+    $sql = "SELECT * FROM v_all_info_categorie WHERE id_membre = '$id_membre' order by nom_categorie";
+    $result = mysqli_query(dbconnect(),$sql);
+    $list = [];
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $list[] = $row;
+    }
+    return $list;
 }
 
 ?>

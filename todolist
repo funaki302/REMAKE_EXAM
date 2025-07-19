@@ -41,7 +41,12 @@ Vesrion 2 :
     ->[ok] afficher les images de cet objet
      ->[ok] fonction pour obtenir tous 
 
-[] recherche d'objet selon multiple critere
+[ok] recherche d'objet selon multiple critere
     ->[ok] formulaire de recherche sur navbar
     ->[ok] fonction recherche()
     ->[ok] afficher les resultats de recherche dans un tableau
+
+[] fiche membre
+    ->[] afficher les info du membre
+    ->[] afficher la liste de ses objets
+        ->[] fonction get_list_objecct_membre()

@@ -30,12 +30,9 @@ session_start();
                         <a class="nav-link" href="upload.php">Nouvel Object</a>
                     </li>
                     <li class="nav-item">
-<<<<<<< HEAD
                         <a class="nav-link" href="fiche_membre.php">Mon profil</a>
                     </li>
                     <li class="nav-item">
-=======
->>>>>>> c98ffaeeda4170db89bca2df4e22b24cd8a1445a
                         <a class="nav-link" href="../inc/deconnexion.php">Deconnexion</a>
                     </li>
                 </ul>

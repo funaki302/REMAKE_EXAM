@@ -44,4 +44,4 @@ Vesrion 2 :
 [] recherche d'objet selon multiple critere
     ->[ok] formulaire de recherche sur navbar
     ->[ok] fonction recherche()
-    ->[] afficher les resultats de recherche dans un tableau
+    ->[ok] afficher les resultats de recherche dans un tableau

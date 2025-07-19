@@ -2,7 +2,7 @@
  include("../inc/functions.php");
     session_start();
     // login
-    if(isset($_POST['email']) && isset($_POST['mdp'])) {
+    if(isset($_POST['email']) && isset($_POST['mdp']) && !isset($_POST['nom'])) {
         $email = $_POST['email'];
         $mdp = $_POST['mdp'];
         $user = login($email, $mdp);

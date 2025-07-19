@@ -1,0 +1,9 @@
+[ok] refactorisation des pages
+[ok] creer les bases de donnees
+
+[ok] creer header et footer
+[] creer la page login
+[] creer la page inscription
+    -[ok] creer des fonctions login et inscription
+    -[ok] appel de ces fonctions dans traitement
+    -[] rediriger vers home.php

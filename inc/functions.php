@@ -35,7 +35,7 @@ function get_user_info($id_membre)
 
 function get_list_object()
 {
-    $sql = "SELECT * FROM v_all_info_objet";
+    $sql = "SELECT * FROM v_all_info_categorie";
     $result = mysqli_query(dbconnect(), $sql);
     $list = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -46,7 +46,7 @@ function get_list_object()
 
 function disponibilite($id_objet)
 {
-    $sql = "SELECT date_retour FROM v_all_info_objet WHERE id_objet = '$id_objet' AND date_retour > now()";
+    $sql = "SELECT date_retour FROM v_all_info_objet_emprunter WHERE id_objet = '$id_objet' AND date_retour > now()";
     $result = mysqli_query(dbconnect(), $sql);
     if (mysqli_num_rows($result) > 0) {
         $rest = mysqli_fetch_assoc($result);
@@ -59,7 +59,7 @@ function disponibilite($id_objet)
 
 function get_list_object_categorie($id_categorie)
 {
-    $sql = "SELECT * FROM v_all_info_objet WHERE id_categorie = '$id_categorie'";
+    $sql = "SELECT * FROM v_all_info_categorie WHERE id_categorie = '$id_categorie'";
     $result = mysqli_query(dbconnect(), $sql);
     $list = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -132,7 +132,7 @@ function avoir_objet($id_objet)
 
 function historique_emprunt($id_objet)
 {
-    $sql = "SELECT nom_objet,nom_categorie,date_emprunt,date_retour,nom,id_membre FROM v_all_info_categorie WHERE id_objet = '$id_objet'";
+    $sql = "SELECT nom_objet,nom_categorie,date_emprunt,date_retour,nom,id_membre FROM v_all_info_objet_emprunter WHERE id_objet = '$id_objet'";
     $result = mysqli_query(dbconnect(),$sql);
     $list = [];
 

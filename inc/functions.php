@@ -1,4 +1,5 @@
 <?php
+
 include("connexion.php");
 
 function login($email, $mdp)
@@ -43,7 +44,8 @@ function get_list_object()
     return $list;
 }
 
-function disponibilite($id_objet){
+function disponibilite($id_objet)
+{
     $sql = "SELECT date_retour FROM v_all_info_objet WHERE id_objet = '$id_objet' AND date_retour > now()";
     $result = mysqli_query(dbconnect(), $sql);
     if (mysqli_num_rows($result) > 0) {
@@ -52,7 +54,7 @@ function disponibilite($id_objet){
     } else {
         return "Disponible";
     }
-    
+
 }
 
 function get_list_object_categorie($id_categorie)
@@ -86,5 +88,34 @@ function avoir_categorie($id_categorie)
     } else {
         return false;
     }
+}
+
+function set_new_images($id_object, $nom_image)
+{
+    $sql = "INSERT INTO images_objet (id_objet,nom_image) 
+    VALUES ('$id_object', '$nom_image')";
+    $result = mysqli_query(dbconnect(), $sql);
+}
+
+function get_id_object($nom_object, $id_categorie, $id_membre)
+{
+    $sql = "SELECT id_objet FROM objet 
+    WHERE nom_objet = '$nom_object' AND id_categorie = '$id_categorie' AND id_membre = '$id_membre'";
+    $result = mysqli_query(dbconnect(), $sql);
+    if (mysqli_num_rows($result) > 0) {
+        return mysqli_fetch_assoc($result)['id_objet'];
+    } else {
+        return false;
+    }
+}
+
+function set_new_objects($nom_object, $id_categorie, $nom_image, $id_membre)
+{
+    $sql = "INSERT INTO objet (nom_objet, id_categorie, id_membre) 
+    VALUES ('$nom_object', '$id_categorie', '$id_membre')";
+    $result = mysqli_query(dbconnect(), $sql);
+
+    $id_object = get_id_object($nom_object, $id_categorie, $id_membre);
+    set_new_images($id_object, $nom_image);
 }
 ?>

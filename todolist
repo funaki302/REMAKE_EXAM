@@ -25,3 +25,10 @@
         -> [ok] fonction get_list_objet_categorie()
         -> [ok] formulaire pour filtrer par categorie
 
+Vesrion 2 :
+-[ok]Rajouter un objet avec photo
+    -[ok] creer upload.php pour uploader les photos
+        -> [ok] set_new_images()
+        -> [ok] function set__new_object()
+        -> [ok] formulaire pour uploader les photos
+   

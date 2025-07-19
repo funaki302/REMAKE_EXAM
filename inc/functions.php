@@ -118,4 +118,42 @@ function set_new_objects($nom_object, $id_categorie, $nom_image, $id_membre)
     $id_object = get_id_object($nom_object, $id_categorie, $id_membre);
     set_new_images($id_object, $nom_image);
 }
+
+function avoir_objet($id_objet)
+{
+    $sql = "SELECT * FROM v_all_info_categorie WHERE id_objet = '$id_objet'";
+    $result = mysqli_query(dbconnect(),$sql);
+    if (mysqli_num_rows($result) > 0) {
+        return mysqli_fetch_assoc($result);
+    } else {
+        return false;
+    }
+}
+
+function historique_emprunt($id_objet)
+{
+    $sql = "SELECT nom_objet,nom_categorie,date_emprunt,date_retour,nom,id_membre FROM v_all_info_categorie WHERE id_objet = '$id_objet'";
+    $result = mysqli_query(dbconnect(),$sql);
+    $list = [];
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $list[] = $row;
+    }
+    return $list;
+
+}
+
+function get_images_objet($id_objet)
+{
+    $sql = "SELECT * FROM images_objet WHERE id_objet = '$id_objet'";
+    $result = mysqli_query(dbconnect(),$sql);
+    $list = [];
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $list[] = $row;
+    }
+    return $list;
+
+}
+
 ?>

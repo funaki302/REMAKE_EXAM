@@ -25,3 +25,18 @@
         -> [ok] fonction get_list_objet_categorie()
         -> [ok] formulaire pour filtrer par categorie
 
+Vesrion 2 :
+-[ok]Rajouter un objet avec photo
+    -[ok] creer upload.php pour uploader les photos
+        -> [ok] set_new_images()
+        -> [ok] function set__new_object()
+        -> [ok] formulaire pour uploader les photos
+
+[ok] creer fiche.php (fiche d'objet)
+    ->[ok] creer un lien de home vers liste de chaque objet
+    ->[ok] fonction avoir_objet()
+    ->[ok] afficher les informations de l'objet (nom,categorie)
+    ->[ok] fonction historique_emprunt()
+    ->[ok] afficher l'historique des emprunts
+    ->[] afficher les images de cet objet
+     ->[] fonction pour obtenir tous 

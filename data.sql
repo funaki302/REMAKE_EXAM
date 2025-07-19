@@ -110,9 +110,6 @@ from categorie_objet c join objet o on c.id_categorie = o.id_categorie
 join membre m on o.id_membre = m.id_membre
 join images_objet i on o.id_objet = i.id_objet;
 
-create or replace view v_all_info_objet as
-select o.id_objet,o.nom_objet, c.nom_categorie,c.id_categorie,m.nom, m.id_membre, i.nom_image, e.date_emprunt, e.date_retour 
-from objet o join  emprunt e on o.id_objet = e.id_objet
-join membre m on e.id_membre = m.id_membre
-join images_objet i on o.id_objet = i.id_objet 
-join v_all_info_categorie c on o.id_categorie = c.id_categorie group by o.id_objet; 
+create or replace view v_all_info_objet_emprunter as
+select vc.* , e.date_emprunt,e.date_retour,m.nom as emprunteur,m.id_membre as id_emprunter from v_all_info_categorie vc join emprunt e on vc.id_objet = e.id_objet
+join membre m on e.id_membre = m.id_membre;

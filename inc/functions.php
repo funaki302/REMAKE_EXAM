@@ -222,4 +222,15 @@ function get_list_object_membre($id_membre)
     return $list;
 }
 
+function delete_image($id_image, $nom_image)
+{
+    $sql = "DELETE FROM images_objet WHERE id_image = '$id_image' AND nom_image = '$nom_image'";
+    $result = mysqli_query(dbconnect(), $sql);
+    if ($result) {
+        unlink("./uploads/" . $nom_image); // Supprimer le fichier du système de fichiers
+        return true;
+    } else {
+        return false;
+    }
+}
 ?>

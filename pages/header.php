@@ -30,9 +30,12 @@ session_start();
                         <a class="nav-link" href="upload.php">Nouvel Object</a>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a class="nav-link" href="fiche_membre.php">Mon profil</a>
                     </li>
                     <li class="nav-item">
+=======
+>>>>>>> c98ffaeeda4170db89bca2df4e22b24cd8a1445a
                         <a class="nav-link" href="../inc/deconnexion.php">Deconnexion</a>
                     </li>
                 </ul>
@@ -42,13 +45,15 @@ session_start();
                     </li>
                 </ul>
                 <form class="d-flex" role="search" action="traitement.php" method="post">
-                    <input class="form-control " type="search" name="categorie" placeholder="selon categorie" aria-label="Search">
+                    <input class="form-control " type="search" name="categorie" placeholder="selon categorie"
+                        aria-label="Search">
                     <input type="checkbox" name="dispo">
-                    <input class="form-control " type="search" name="nom_objet" placeholder="selon nom objet" aria-label="Search">
+                    <input class="form-control " type="search" name="nom_objet" placeholder="selon nom objet"
+                        aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 <input type="checkbox" name="" id="">
-                
+
             </div>
         </div>
     </nav>

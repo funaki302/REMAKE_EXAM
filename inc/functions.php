@@ -156,4 +156,34 @@ function get_images_objet($id_objet)
 
 }
 
+function recherche($categorie,$nom_objet,$dispo){
+    $conditions = [];
+    if (!empty($nom_objet)) {
+        $conditions[] = "(nom_objet LIKE '%$nom_objet%')";
+    }
+    if (!empty($categorie)) {
+        $conditions[] = "(nom_categorie LIKE  '%$categorie%')";
+    }
+    /*if($dispo === "1") {
+        $conditions[] = "(date_retour IS NULL OR date_retour <= NOW())";
+    }
+    if($dispo === "0") {
+        $conditions[] = "(date_retour > NOW())";
+    }*/
+
+    $sql = "SELECT * FROM v_all_info_categorie";
+
+    if (!empty($conditions)) {
+        $sql .= " WHERE " . implode(" AND ", $conditions);
+    }
+
+    $result = mysqli_query(dbconnect(), $sql);
+    $retour = [];
+    while ($result && $donnes = mysqli_fetch_assoc($result)) {
+        $retour[] = $donnes;
+    }
+
+    return $retour;
+}
+
 ?>

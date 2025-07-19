@@ -38,5 +38,10 @@ Vesrion 2 :
     ->[ok] afficher les informations de l'objet (nom,categorie)
     ->[ok] fonction historique_emprunt()
     ->[ok] afficher l'historique des emprunts
-    ->[] afficher les images de cet objet
-     ->[] fonction pour obtenir tous 
+    ->[ok] afficher les images de cet objet
+     ->[ok] fonction pour obtenir tous 
+
+[] recherche d'objet selon multiple critere
+    ->[ok] formulaire de recherche sur navbar
+    ->[ok] fonction recherche()
+    ->[] afficher les resultats de recherche dans un tableau

@@ -120,7 +120,7 @@ body::before {
 }
 
 /* ===== NAVIGATION SPATIALE ===== */
-.navbar {
+/*.navbar {
     background: rgba(10, 22, 40, 0.9) !important;
     backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid var(--space-blue);
@@ -187,7 +187,100 @@ body::before {
     color: var(--star-white) !important;
     box-shadow: var(--shadow-nebula);
     animation: float 3s ease-in-out infinite;
+}*/
+/* Style général de la navbar */
+.navbar {
+    background: linear-gradient(135deg, #0a0f24 0%, #0b1c3d 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: 'Poppins', sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: space-glow 6s infinite alternate;
 }
+
+/* Animation de l'effet spatial */
+@keyframes space-glow {
+    0% { box-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+    100% { box-shadow: 0 0 20px #007bff, 0 0 40px #007bff; }
+}
+
+/* Liens du menu */
+.navbar .nav-link {
+    color: #f0f0f0 !important;
+    font-size: 1.05rem;
+    margin: 0 0.5rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #00e5ff !important;
+}
+
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+    background: #00e5ff;
+    transition: 0.3s ease;
+}
+
+.navbar .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Brand (logo/home) */
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.navbar-brand:hover {
+    color: #00e5ff !important;
+}
+
+/* Search bar */
+.navbar .form-control {
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.navbar .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #00e5ff;
+    box-shadow: 0 0 10px #00e5ff;
+}
+
+.navbar .btn-outline-success {
+    color: #00e5ff;
+    border-color: #00e5ff;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.navbar .btn-outline-success:hover {
+    background-color: #00e5ff;
+    color: #0a0f24;
+    box-shadow: 0 0 10px #00e5ff;
+}
+
+/* Texte Bonjour utilisateur */
+.navbar ul:last-of-type .nav-link {
+    color: #9ecfff !important;
+    font-style: italic;
+}
+
 
 /* ===== CONTENEUR PRINCIPAL ===== */
 main {

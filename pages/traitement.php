@@ -31,9 +31,28 @@
             $_SESSION['mes'] = "Inscription successful!";
             $_SESSION["user"] = get_user_info(mysqli_insert_id(dbconnect()));
             header("Location: home.php");
+            exit();
         } else {
             $_SESSION['mes'] = "Inscription failed.";
             header("Location: Inscription.php");
+            exit();
         }
+    }
+
+    // recherche
+    if(isset($_POST['categorie']) && isset($_POST['nom_objet']))
+    {
+        $categorie = $_POST['categorie'];
+        $nom_objet = $_POST['nom_objet'];
+        unset($_SESSION['recherche']);
+        $dispo = 0;  // si non checker
+        if(isset($_POST['dispo'])){
+            // si checker
+            $dispo = 1;
+        }
+        $_SESSION['recherche'] = recherche($categorie,$nom_objet,$dispo);
+        $_SESSION['dispo'] = $dispo;
+        header("Location:result.php");
+        exit();
     }
 ?>

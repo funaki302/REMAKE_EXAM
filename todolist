@@ -2,20 +2,26 @@
 [ok] creer les bases de donnees
 
 [ok] creer header et footer
-[] creer la page login
-[] creer la page inscription
+[ok] creer la page login
+[ok] creer la page inscription
     -[ok] creer des fonctions login et inscription
     -[ok] appel de ces fonctions dans traitement
     -[ok]Formulaire pour sinscrire dans la page inscription
     -[ok] rediriger vers home.php
 
-[] creer la page home
+[ok] creer la page home
     -[ok] inserer un header et un footer
-    -[] Afficher son nom
+    -[ok] Afficher son nom
         -> [ok] creation de vue v_all_info
         -> [ok] functtion get_user_info() 
-    -[] Afficher la liste des emprunts (Nom , categorie , disponiblite)
-        -> [] creation de vue v_info_object
-        -> [] fonction get_list_objecct() 
-
+    -[ok] Afficher la liste des objets (Nom , categorie , disponiblite)
+        -> [ok] creation de vue v_info_object
+        -> [ok] fonction get_list_objecct() 
+        -> [ok] function disponibilite()
+        -> [ok] afficher la disponobilite de chaque objet dans la page home
+    -[ok] filttrer la liste des objets par categorie
+        -> [ok] fonction get_list_categorie()
+        -> [ok] fonction avoir_categorie()
+        -> [ok] fonction get_list_objet_categorie()
+        -> [ok] formulaire pour filtrer par categorie
 

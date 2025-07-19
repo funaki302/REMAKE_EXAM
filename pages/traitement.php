@@ -29,10 +29,11 @@
 
         if(inscription($email, $mdp, $nom, $dtn, $ville, $genre)) {
             $_SESSION['mes'] = "Inscription successful!";
+            $_SESSION["user"] = get_user_info(mysqli_insert_id(dbconnect()));
             header("Location: home.php");
         } else {
             $_SESSION['mes'] = "Inscription failed.";
-            header("Location: inscription.php");
+            header("Location: Inscription.php");
         }
     }
 ?>

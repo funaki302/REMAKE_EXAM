@@ -17,7 +17,7 @@
                 <p><input type="password" name="mdp" placeholder="Mot de passe ..." id=""></p>
                 <p><input type="submit" value="Login"></p>
             </form>
-            <p>Vous n'etes pas encore inscrit ? <a href="inscription.php">Inscrivez vous</a></p>
+            <p>Vous n'etes pas encore inscrit ? <a href="Inscription.php">Inscrivez vous</a></p>
         </div>
     </main>
 </body>

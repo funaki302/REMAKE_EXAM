@@ -1,6 +1,7 @@
 <?php
 include("../inc/functions.php");
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,10 +50,16 @@ session_start();
                         <a class="nav-link disabled">Disabled</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Bonjour <?= $_SESSION['user']['nom'] ?></a>
+                    </li>
+                </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
+                
             </div>
         </div>
     </nav>

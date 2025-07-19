@@ -51,6 +51,10 @@ Vesrion 2 :
     ->[ok] afficher la liste de ses objets
         ->[ok] fonction get_list_objecct_membre()
         
-[] supprimer des photos
-    ->[] formulaire pour supprimer les photos
-    ->[] function delete_image()
+[ok] supprimer des photos
+    ->[ok] formulaire pour supprimer les photos
+    ->[ok] function delete_image()
+
+[ok] ajouter photos dans  la fiche d'objet
+    ->[ok] formulaire pour ajouter des photos
+    ->[ok] function add_image()

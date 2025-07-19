@@ -46,13 +46,10 @@ Vesrion 2 :
     ->[ok] fonction recherche()
     ->[ok] afficher les resultats de recherche dans un tableau
 
-<<<<<<< HEAD
 [] fiche membre
     ->[] afficher les info du membre
     ->[] afficher la liste de ses objets
         ->[] fonction get_list_objecct_membre()
-=======
 [] supprimer des photos
     ->[] formulaire pour supprimer les photos
     ->[] function delete_image()
->>>>>>> c98ffaeeda4170db89bca2df4e22b24cd8a1445a

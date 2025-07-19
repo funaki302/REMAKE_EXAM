@@ -16,11 +16,11 @@
                 <p><input type="email" name="email" placeholder="Email@gmail.com" id=""></p>
                 <p><input type="text" name="nom" placeholder="Votre Pseudo" id=""></p>
                 <p><input type="date" name="dtn"  id=""></p>
-                <p><input type="text" name="ville" id=""></p>
-                <select name="genre" id="">
+                <p><input type="text" name="ville" placeholder="Votre ville" id=""></p>
+                <p><select name="genre" id="">
                     <option value="H">Homme</option>
                     <option value="F">Femme</option>
-                </select>
+                </select></p>
                 <p><input type="password" name="mdp" placeholder="Mot de passe ..." id=""></p>
                 <p><input type="submit" value="Login"></p>
             </form>

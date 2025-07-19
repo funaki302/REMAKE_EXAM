@@ -49,6 +49,12 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link disabled">Disabled</a>
                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="upload.php">Nouvel Object</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../inc/deconnexion.php">Deconnexion</a>
+                    </li>
                 </ul>
                 <ul>
                     <li class="nav-item">

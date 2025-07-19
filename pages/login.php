@@ -15,9 +15,9 @@
             <form action="traitement.php" method="post">
                 <p><input type="email" name="email" placeholder="Email@gmail.com" id=""></p>
                 <p><input type="password" name="mdp" placeholder="Mot de passe ..." id=""></p>
-                <p><input type="submit" value="Login"></p>
+                <p class="text-center" ><input type="submit" value="Login"></p>
             </form>
-            <p>Vous n'etes pas encore inscrit ? <a href="Inscription.php">Inscrivez vous</a></p>
+            <p class="text-center">Vous n'etes pas encore inscrit ? <a style="color = green" href="Inscription.php">Inscrivez vous</a></p>
         </div>
     </main>
 </body>

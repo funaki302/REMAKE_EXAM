@@ -11,7 +11,7 @@ if(isset($_GET['id_categorie']) && $_GET['id_categorie'] != '') {
 <main>
     <div class="container">
         
-        <p><strong>Filtrer par categorie</strong></p>
+        <p class="text-center"><strong>Filtrer par categorie</strong></p>
         <form action="home.php" method="get">
             <select name="id_categorie" id="">
                 <option value="">Toutes les categories</option>
@@ -19,6 +19,7 @@ if(isset($_GET['id_categorie']) && $_GET['id_categorie'] != '') {
                     <option value="<?= $category['id_categorie'] ?>"><?= $category['nom_categorie'] ?></option>
                 <?php endforeach; ?>
             </select>
+            <br>
             <input type="submit" value="Filtrer">
         </form>
         

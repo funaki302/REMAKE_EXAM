@@ -1,6 +1,7 @@
 <?php
 include("header.php");
 $id_objet = $_GET['id_objet'];
+$_SESSION['id_objet'] = $id_objet;
 $objet = avoir_objet($id_objet);
 $historiques = historique_emprunt($id_objet);
 $images = get_images_objet($id_objet);

@@ -1,13 +1,13 @@
 <?php
-include('../includes/fonction.php');
+include('../inc/functions.php');
 session_start();
-$id_I = (int) $_SESSION['req_selct'];
-$description = $_POST['description'];
-$title = $_POST['title'];
+$id_membre = $_SESSION['user']['id_membre'];
+$id_categorie = $_POST['categorie'];
+$nom_objet = $_POST['nom_objet'];
 $tipe = 0;
 $uploadDir = __DIR__ . '/uploads/';
 $maxSize = 200 * 1024 * 1024; // 2 Mo 
-$allowedMimeTypes = ['video/mp4','video/webm', 'image/jpeg', 'image/png', 'image/svg+xml', 'image/webp'];
+$allowedMimeTypes = [ 'image/jpeg', 'image/png', 'image/svg+xml', 'image/webp'];
 $cas = 0;
 
 // Création du dossier s'il n'existe pas
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['media'])) {
 
     // Déplace le fichier 
     if (move_uploaded_file($file['tmp_name'], $uploadDir . $newName)) {
-        set_pics( $newName, $id_I,  $description,$tipe,$title);
+        set_new_objects($nom_objet,$id_categorie, $newName, $id_membre);
         header('location:../pages/home.php');
     } else {
         echo "Échec du déplacement du fichier.";

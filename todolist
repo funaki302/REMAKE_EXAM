@@ -25,12 +25,3 @@
         -> [ok] fonction get_list_objet_categorie()
         -> [ok] formulaire pour filtrer par categorie
 
-[ok] creer fiche.php (fiche d'objet)
-    ->[ok] creer un lien de home vers liste de chaque objet
-    ->[ok] fonction avoir_objet()
-    ->[ok] afficher les informations de l'objet (nom,categorie)
-    ->[ok] fonction historique_emprunt()
-    ->[ok] afficher l'historique des emprunts
-    ->[] afficher les images de cet objet
-     ->[] fonction get_images_objet()
-

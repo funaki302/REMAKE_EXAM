@@ -198,4 +198,16 @@ function recherche($categorie,$nom_objet,$dispo)
     return $retour;
 }
 
+function get_id_membre($nom, $email, $mdp)
+{
+    $sql = "SELECT id_membre FROM membre 
+    WHERE nom = '$nom' AND email = '$email' AND mdp = '$mdp'";
+    $result = mysqli_query(dbconnect(), $sql);
+    if (mysqli_num_rows($result) > 0) {
+        return mysqli_fetch_assoc($result)['id_membre'];
+    } else {
+        return false;
+    }
+}
+
 ?>

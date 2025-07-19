@@ -29,7 +29,8 @@
 
         if(inscription($email, $mdp, $nom, $dtn, $ville, $genre)) {
             $_SESSION['mes'] = "Inscription successful!";
-            $_SESSION["user"] = get_user_info(mysqli_insert_id(dbconnect()));
+            $user = login($email, $mdp);
+            $_SESSION["user"] = $user;
             header("Location: home.php");
             exit();
         } else {
